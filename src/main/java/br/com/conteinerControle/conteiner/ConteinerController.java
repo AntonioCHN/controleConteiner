@@ -15,8 +15,8 @@ public class ConteinerController extends BaseController<Conteiner, ConteinerRepo
   @Autowired
   private ConteinerService conteinerService;
   
-  @PostMapping(value = "/saveConteiner")
-  public void saveConteiner(@RequestBody Conteiner conteiner){
-    conteinerService.saveConteiner(conteiner);
+  @PostMapping(value = "/salvarConteiner")
+  public void salvarConteiner(@RequestBody Conteiner conteiner){
+    conteinerService.salvarConteiner(conteiner);
   }
 }

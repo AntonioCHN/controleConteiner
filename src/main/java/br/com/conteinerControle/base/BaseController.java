@@ -25,8 +25,8 @@ public class BaseController <ENTITY extends BaseEntity, REPOSITORY extends BaseR
    //annotation @PostMapping que marca este metodo como um metodo http de post, ou seja, que ira fazer um POST na tabela, ira iserir um novo registro na tabel
   //reponseEntity me apresenta metodos para a manipulação das requisçoes http de uma forma que otimiza nosso codigo, me dando acesso também aos codigos de status para enviar se uma requisição teve sucesso ou não
   @PostMapping
-  public ResponseEntity<String> save(@RequestBody ENTITY entity) {
-    Optional<ENTITY> result = service.save(entity);
+  public ResponseEntity<String> salvar(@RequestBody ENTITY entity) {
+    Optional<ENTITY> result = service.salvar(entity);
     if (result.isPresent()) {
       return ResponseEntity.status(HttpStatus.CREATED).body(result.get().getCod().toString());
     } else {

@@ -1,6 +1,8 @@
 package br.com.conteinerControle.movimentacao;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,19 +26,19 @@ public class MovimentacaoController extends BaseController<Movimentacao, Movimen
   @Autowired
   private MovimentacaoService movimentacaoService;
 
-  @PostMapping(value = "/salvarMovimentacoes")
-  public ResponseEntity<List<Movimentacao>> saveMovimentacoes(@RequestBody List<Movimentacao> movimentacoes){
-    List<Movimentacao> result = movimentacaoService.salvarMovimentacoes(movimentacoes);
-    if(!result.isEmpty()){
-      return ResponseEntity.status(HttpStatus.CREATED).body(result);
+  @PostMapping(value = "/salvarMovimentacao")
+  public ResponseEntity<String> salvarMovimentacao(@RequestBody Movimentacao movimentacao){
+    Optional<Movimentacao> result = movimentacaoService.salvarMovimentacao(movimentacao);
+    if(result.isPresent()){
+      return ResponseEntity.status(HttpStatus.CREATED).body(result.get().getCod().toString());
     } else {
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+      return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
   }
 
   @GetMapping(value = "/listarMovimentacoesPorClienteETipoMovimentacao")
-  public List<Movimentacao> listarMovimentacoesAgrupadasPorClienteETipoMovimentacao(){
-    return movimentacaoRepository.listarMovimentacoesPorClientesETipoMovimentacao();
+  public Map<String, Object> listarMovimentacoesAgrupadasPorClienteETipoMovimentacao(){
+    return movimentacaoService.listarMovimentacoesAgrupadasPorClienteETipoMovimentacao();
   } 
 
   @GetMapping(value = "/listarMovimentacoesPorCliente")

@@ -15,7 +15,7 @@ public class BaseService<ENTITY extends BaseEntity, REPOSITORY extends BaseRepos
 
   @Transactional
   //metodo que salva um registro na entidade 
-  public Optional<ENTITY> save(ENTITY entity){
+  public Optional<ENTITY> salvar(ENTITY entity){
     ENTITY n = repo.save(entity);
     return Optional.of(n);
   } 
@@ -24,7 +24,7 @@ public class BaseService<ENTITY extends BaseEntity, REPOSITORY extends BaseRepos
   @Transactional 
   public Optional<ENTITY> update(ENTITY entity){
     if (repo.existsById(entity.getCod())){
-      save(entity);
+      salvar(entity);
       return Optional.of(entity);
     } else {
       return Optional.empty();

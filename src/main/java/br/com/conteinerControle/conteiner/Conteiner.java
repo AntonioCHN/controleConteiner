@@ -12,7 +12,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 @Entity
@@ -23,19 +22,15 @@ public class Conteiner extends BaseEntity{
   @JoinColumn(name = "cliente_cod")
   private Cliente cliente;
 
-  @NotNull(message = "Todos os campos devem ser preenchidos!")
   @Pattern(regexp = "[CONT]{4}[0-9]{7}", message = "Campo deve ser preenchido com 4 letras iniciais (CONT), seguidas de 7 números!")
-  private String numConteiner;
+  private String numero;
 
-  @NotNull(message = "Todos os campos devem ser preenchidos!")
   @Enumerated(EnumType.STRING) //Anotação para o registro ser salvo como uma string no banco
-  private TipoConteiner tipo;
+  private TipoConteiner tipoc;
 
-  @NotNull(message = "Todos os campos devem ser preenchidos!")
   @Enumerated(EnumType.STRING)
   private Status status;
 
-  @NotNull(message = "Todos os campos devem ser preenchidos!")
   @Enumerated(EnumType.STRING)
   private Categoria categoria;
 
@@ -51,20 +46,20 @@ public class Conteiner extends BaseEntity{
     this.cliente = cliente;
   }
 
-  public String getNumConteiner() {
-    return numConteiner;
+  public String getNumero() {
+    return numero;
   }
 
-  public void setNumConteiner(String numConteiner) {
-    this.numConteiner = numConteiner;
+  public void setNumero(String numero) {
+    this.numero = numero;
   }
 
-  public TipoConteiner getTipo() {
-    return tipo;
+  public TipoConteiner getTipoc() {
+    return tipoc;
   }
 
-  public void setTipo(TipoConteiner tipo) {
-    this.tipo = tipo;
+  public void setTipo(TipoConteiner tipoc) {
+    this.tipoc = tipoc;
   }
 
   public Status getStatus() {
@@ -82,7 +77,5 @@ public class Conteiner extends BaseEntity{
   public void setCategoria(Categoria categoria) {
     this.categoria = categoria;
   }
-  
-
   
 }

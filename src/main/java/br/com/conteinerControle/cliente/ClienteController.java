@@ -16,7 +16,7 @@ public class ClienteController extends BaseController<Cliente, ClienteRepository
   private ClienteService clienteService;
 
   @PostMapping(value = "/salvarCliente")
-  public void salvarCliente(@RequestBody Cliente clinte){
-    clienteService.salvarCliente(clinte);
+  public void salvarCliente(@RequestBody Cliente cliente){
+    clienteService.salvarCliente(cliente);
   }
 }

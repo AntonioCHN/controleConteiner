@@ -15,7 +15,7 @@ public class ClienteService extends BaseService<Cliente, ClienteRepository>{
 
   
   public void salvarCliente(Cliente cliente){
-    Optional<Cliente> cli = clienteRepository.findAll().stream().filter(cl -> cl.getName().equals(cliente.getName())).findFirst();
+    Optional<Cliente> cli = clienteRepository.findAll().stream().filter(cl -> cl.getNome().equals(cliente.getNome())).findFirst();
     if(!cli.isEmpty()){
       throw new RuntimeException("Cliente já cadastrado!");
     }

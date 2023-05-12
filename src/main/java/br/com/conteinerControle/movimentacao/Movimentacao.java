@@ -1,8 +1,11 @@
 package br.com.conteinerControle.movimentacao;
 
-import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDateTime;
+
+//import com.fasterxml.jackson.annotation.JsonFormat;
+
+//import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.conteinerControle.base.BaseEntity;
 import br.com.conteinerControle.conteiner.Conteiner;
@@ -15,7 +18,6 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import jakarta.validation.constraints.NotNull;
 
 
 @Entity
@@ -26,24 +28,19 @@ public class Movimentacao extends BaseEntity {
   @JoinColumn(name = "conteiner_cod")
   private Conteiner conteiner;
 
-  @NotNull(message = "Todos os campos devem ser preenchidos!")
   @Enumerated(EnumType.STRING)
-  private TipoMovimentacao tipo;
+  private TipoMovimentacao tipom;
 
-  @NotNull(message = "Todos os campos devem ser preenchidos!")
-  @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+  //@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss") 
   @Temporal(TemporalType.TIMESTAMP)
-  private Date dataHoraInicio;
+  private LocalDateTime datahorai;
 
-  @NotNull(message = "Todos os campos devem ser preenchidos!")
-  @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+  //@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss") 
   @Temporal(TemporalType.TIMESTAMP)
-  private Date dataHoraFim;
-
+  private LocalDateTime datahoraf;
 
   public Movimentacao() {
   }
-
 
   public Conteiner getConteiner() {
     return conteiner;
@@ -53,28 +50,28 @@ public class Movimentacao extends BaseEntity {
     this.conteiner = conteiner;
   }
 
-  public TipoMovimentacao getTipo() {
-    return tipo;
+  public TipoMovimentacao getTipom() {
+    return tipom;
   }
 
-  public void setTipo(TipoMovimentacao tipo) {
-    this.tipo = tipo;
+  public void setTipom(TipoMovimentacao tipom) {
+    this.tipom = tipom;
   }
 
-  public Date getDataHoraInicio() {
-    return dataHoraInicio;
+  public LocalDateTime getDatahorai() {
+    return datahorai;
   }
 
-  public void setDataHoraInicio(Date dataHoraInicio) {
-    this.dataHoraInicio = dataHoraInicio;
+  public void setDatahorai(LocalDateTime datahorai) {
+    this.datahorai = datahorai;
   }
 
-  public Date getDataHoraFim() {
-    return dataHoraFim;
+  public LocalDateTime getDatahoraf() {
+    return datahoraf;
   }
 
-  public void setDataHoraFim(Date dataHoraFim) {
-    this.dataHoraFim = dataHoraFim;
+  public void setDatahoraf(LocalDateTime datahoraf) {
+    this.datahoraf = datahoraf;
   }
 
 }
