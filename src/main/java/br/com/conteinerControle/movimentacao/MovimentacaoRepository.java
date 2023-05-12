@@ -5,9 +5,8 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import br.com.conteinerControle.Resumo.MovimentacaoResumida;
-//import br.com.conteinerControle.Resumo.MovimentacaoResumida;
 import br.com.conteinerControle.base.BaseRepository;
+import br.com.conteinerControle.resumo.MovimentacaoResumida;
 
 public interface MovimentacaoRepository extends BaseRepository<Movimentacao>{
 

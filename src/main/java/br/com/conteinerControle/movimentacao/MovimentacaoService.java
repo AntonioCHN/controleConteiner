@@ -9,8 +9,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.conteinerControle.Resumo.MovimentacaoResumida;
 import br.com.conteinerControle.base.BaseService;
+import br.com.conteinerControle.resumo.MovimentacaoResumida;
 
 @Service
 public class MovimentacaoService extends BaseService<Movimentacao, MovimentacaoRepository> {
@@ -24,7 +24,7 @@ public class MovimentacaoService extends BaseService<Movimentacao, MovimentacaoR
     return Optional.of(nova);
   }
 
-
+  
   public void validarDataHora(Movimentacao movimentacao){
     LocalDateTime agora = LocalDateTime.now();
     LocalDateTime datahorai = movimentacao.getDatahorai();
