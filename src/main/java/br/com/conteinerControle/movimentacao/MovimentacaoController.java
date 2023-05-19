@@ -37,7 +37,7 @@ public class MovimentacaoController extends BaseController<Movimentacao, Movimen
   }
 
   @GetMapping(value = "/listarMovimentacoesPorClienteETipoMovimentacao")
-  public Map<String, Object> listarMovimentacoesAgrupadasPorClienteETipoMovimentacao(){
+  public Map<Object, Object> listarMovimentacoesAgrupadasPorClienteETipoMovimentacao(){
     return movimentacaoService.listarMovimentacoesAgrupadasPorClienteETipoMovimentacao();
   } 
 

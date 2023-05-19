@@ -13,6 +13,7 @@ import br.com.conteinerControle.enums.TipoMovimentacao;
 
 @Component
 public interface MovimentacaoResumida {
+
   @JsonIgnore
   Long getCod();
 

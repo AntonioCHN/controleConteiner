@@ -18,7 +18,7 @@ public interface MovimentacaoRepository extends BaseRepository<Movimentacao>{
                 + "from movimentacao m "
                 + "inner join conteiner c on c.cod = m.conteiner_cod "
                 + "inner join cliente cl on cl.cod = c.cliente_cod "
-                + "group by m.cod, cl.nome, m.tipom ", nativeQuery = true)                        
+                + "group by cl.nome, m.cod, m.tipom ", nativeQuery = true)                        
   public List<MovimentacaoResumida> listarMovimentacoesPorClientesETipoMovimentacao();
 
 

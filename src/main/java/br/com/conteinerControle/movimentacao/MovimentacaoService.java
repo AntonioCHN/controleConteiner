@@ -2,9 +2,11 @@ package br.com.conteinerControle.movimentacao;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import br.com.conteinerControle.resumo.MovimentacaoResumida;
 
 @Service
 public class MovimentacaoService extends BaseService<Movimentacao, MovimentacaoRepository> {
+
 
   @Autowired
   private MovimentacaoRepository movimentacaoRepository;
@@ -40,29 +43,32 @@ public class MovimentacaoService extends BaseService<Movimentacao, MovimentacaoR
   /*vamos implementar agora o metodo que vai acessar a nossa query nativa para trazer o relatório das movimentações agrupadas por cliente e com o total de importação e exportação.
   Utilizando a estrutura Map para mapearmos a forma que os dados deve ser acessados no banco de dados e apresentados para o cliente*/
 
-  public Map<String, Object> listarMovimentacoesAgrupadasPorClienteETipoMovimentacao(){
-    
-    Optional<Long> totalImportacao = Optional.empty();
-    Optional<Long> totalExportacao = Optional.empty();
+  public Map<Object, Object> listarMovimentacoesAgrupadasPorClienteETipoMovimentacao(){
 
     List<MovimentacaoResumida> movimentacoes = movimentacaoRepository.listarMovimentacoesPorClientesETipoMovimentacao();
 
-    Map<String, Object> mapa = new HashMap<>();
-    for (MovimentacaoResumida mov : movimentacoes){
-      mapa.put(mov.getCod().toString(), mov);
-    }
 
-    totalImportacao = Optional.of(movimentacoes.stream().mapToLong(p -> p.getTotalImportacao()).sum());
-    totalExportacao = Optional.of(movimentacoes.stream().mapToLong(p -> p.getTotalExportacao()).sum());
+    Map<Object, Object> mapa = movimentacoes.stream()
+    .collect(Collectors.toMap(x -> x.getCod(), x -> x));  
+    
+    
+    Optional<Long> totalImportacao = Optional.empty();
+    Optional<Long> totalExportacao = Optional.empty();
+  
 
+    totalImportacao = Optional.of(movimentacoes.stream().mapToLong(m -> m.getTotalImportacao()).sum());
+    totalExportacao = Optional.of(movimentacoes.stream().mapToLong(m -> m.getTotalExportacao()).sum());
+
+    
+    Map<Object, Object> mapa1 = new HashMap<>();
     if ((totalImportacao.isPresent()) && (totalExportacao.isPresent())){
-      mapa.put("Total de Importação", totalImportacao);
-      mapa.put("Total de Exportação", totalExportacao);
+      mapa1.put("Total de Importação", totalImportacao);
+      mapa1.put("Total de Exportação", totalExportacao);
     }
 
-    return mapa;
+    Map<Object, Object> finalMap = new LinkedHashMap<>(mapa);
+      finalMap.putAll(mapa1);
 
+    return finalMap;
   }
-
-
 }

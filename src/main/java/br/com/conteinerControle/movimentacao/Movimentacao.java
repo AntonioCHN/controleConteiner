@@ -73,5 +73,4 @@ public class Movimentacao extends BaseEntity {
   public void setDatahoraf(LocalDateTime datahoraf) {
     this.datahoraf = datahoraf;
   }
-
 }
