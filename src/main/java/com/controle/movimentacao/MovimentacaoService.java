@@ -1,4 +1,4 @@
-package br.com.conteinerControle.movimentacao;
+package com.controle.movimentacao;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.conteinerControle.base.BaseService;
-import br.com.conteinerControle.resumo.MovimentacaoResumida;
+import com.controle.base.BaseService;
+import com.controle.resumo.MovimentacaoResumida;
 
 @Service
 public class MovimentacaoService extends BaseService<Movimentacao, MovimentacaoRepository> {

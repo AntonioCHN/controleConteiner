@@ -1,12 +1,12 @@
-package br.com.conteinerControle.movimentacao;
+package com.controle.movimentacao;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import br.com.conteinerControle.base.BaseRepository;
-import br.com.conteinerControle.resumo.MovimentacaoResumida;
+import com.controle.base.BaseRepository;
+import com.controle.resumo.MovimentacaoResumida;
 
 public interface MovimentacaoRepository extends BaseRepository<Movimentacao>{
 

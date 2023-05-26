@@ -1,6 +1,6 @@
-package br.com.conteinerControle.cliente;
+package com.controle.cliente;
 
-import br.com.conteinerControle.base.BaseRepository;
+import com.controle.base.BaseRepository;
  //anota a classe como um repositório para o spring 
 public interface ClienteRepository extends BaseRepository<Cliente> {
   

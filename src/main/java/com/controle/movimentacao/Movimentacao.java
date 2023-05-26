@@ -1,15 +1,13 @@
-package br.com.conteinerControle.movimentacao;
+package com.controle.movimentacao;
 
 
 import java.time.LocalDateTime;
 
-//import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-//import com.fasterxml.jackson.annotation.JsonFormat;
-
-import br.com.conteinerControle.base.BaseEntity;
-import br.com.conteinerControle.conteiner.Conteiner;
-import br.com.conteinerControle.enums.TipoMovimentacao;
+import com.controle.base.BaseEntity;
+import com.controle.conteiner.Conteiner;
+import com.controle.enums.TipoMovimentacao;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -31,11 +29,11 @@ public class Movimentacao extends BaseEntity {
   @Enumerated(EnumType.STRING)
   private TipoMovimentacao tipom;
 
-  //@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss") 
+  @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss") 
   @Temporal(TemporalType.TIMESTAMP)
   private LocalDateTime datahorai;
 
-  //@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss") 
+  @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss") 
   @Temporal(TemporalType.TIMESTAMP)
   private LocalDateTime datahoraf;
 

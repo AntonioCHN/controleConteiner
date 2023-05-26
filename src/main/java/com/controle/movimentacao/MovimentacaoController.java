@@ -1,4 +1,4 @@
-package br.com.conteinerControle.movimentacao;
+package com.controle.movimentacao;
 
 import java.util.List;
 import java.util.Map;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.conteinerControle.base.BaseController;
+import com.controle.base.BaseController;
 
 @RestController
 @RequestMapping("/api/movimentacoes")

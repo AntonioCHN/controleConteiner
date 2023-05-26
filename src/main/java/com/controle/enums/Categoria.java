@@ -1,4 +1,4 @@
-package br.com.conteinerControle.enums;
+package com.controle.enums;
 
 public enum Categoria {
   Exportação, Importação

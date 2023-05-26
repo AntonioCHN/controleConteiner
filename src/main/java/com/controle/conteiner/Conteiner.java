@@ -1,11 +1,11 @@
-package br.com.conteinerControle.conteiner;
+package com.controle.conteiner;
 
 
-import br.com.conteinerControle.base.BaseEntity;
-import br.com.conteinerControle.cliente.Cliente;
-import br.com.conteinerControle.enums.Categoria;
-import br.com.conteinerControle.enums.Status;
-import br.com.conteinerControle.enums.TipoConteiner;
+import com.controle.base.BaseEntity;
+import com.controle.cliente.Cliente;
+import com.controle.enums.Categoria;
+import com.controle.enums.Status;
+import com.controle.enums.TipoConteiner;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

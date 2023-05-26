@@ -1,6 +1,6 @@
-package br.com.conteinerControle.cliente;
+package com.controle.cliente;
 
-import br.com.conteinerControle.base.BaseEntity;
+import com.controle.base.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 

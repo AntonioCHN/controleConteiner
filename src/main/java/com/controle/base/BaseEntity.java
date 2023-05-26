@@ -1,4 +1,4 @@
-package br.com.conteinerControle.base;
+package com.controle.base;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

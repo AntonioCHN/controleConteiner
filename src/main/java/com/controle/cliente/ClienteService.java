@@ -1,11 +1,11 @@
-package br.com.conteinerControle.cliente;
+package com.controle.cliente;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.conteinerControle.base.BaseService;
+import com.controle.base.BaseService;
 
 @Service
 public class ClienteService extends BaseService<Cliente, ClienteRepository>{

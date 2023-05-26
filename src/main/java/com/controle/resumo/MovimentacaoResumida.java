@@ -1,4 +1,4 @@
-package br.com.conteinerControle.resumo;
+package com.controle.resumo;
 
 import java.time.LocalDateTime;
 
@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import br.com.conteinerControle.enums.Categoria;
-import br.com.conteinerControle.enums.Status;
-import br.com.conteinerControle.enums.TipoConteiner;
-import br.com.conteinerControle.enums.TipoMovimentacao;
+import com.controle.enums.Categoria;
+import com.controle.enums.Status;
+import com.controle.enums.TipoConteiner;
+import com.controle.enums.TipoMovimentacao;
 
 @Component
 public interface MovimentacaoResumida {

@@ -1,4 +1,4 @@
-package br.com.conteinerControle.base;
+package com.controle.base;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;

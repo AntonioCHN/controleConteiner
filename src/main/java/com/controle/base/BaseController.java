@@ -1,4 +1,4 @@
-package br.com.conteinerControle.base;
+package com.controle.base;
 //um Controller tem como parâmetro uma entidade que extende de BaseEntity, um repositório que extende de BaseRepository, e referencia uma entidade e um Service que extende de BaseService, e referencia uma entidade e um repositório
 
 import java.util.List;
